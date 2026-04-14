@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>SOP Lên Concept Mới — Ngọt Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,300&family=Manrope:wght@300;400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+:root {
+  --kem:#FAF6EF;--sua:#FFFDF9;--than:#2E2A25;--than-nhe:#5A5048;
+  --xanh:#6B7D69;--xanh-nhe:#A8B8A5;--xanh-pale:#DDE5DA;
+  --dat:#C0785A;--dat-nhe:#DBA990;--dat-pale:#F0DDD4;
+  --nau:#9A7055;--hong:#E2C4B5;--hong-deep:#C49880;
+  --hong-pale:#F5EBE4;--vang:#E8DCC8;--line:rgba(46,42,37,0.10);
+  --serif:'Be Vietnam Pro',sans-serif;--sans:'Manrope',sans-serif;--script:'Pacifico',cursive;
+  --pad:clamp(20px,6vw,80px);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{background:var(--kem);color:var(--than);font-family:var(--sans);font-size:clamp(13px,2vw,15px);line-height:1.65;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:0.45;}
+
+/* ── COVER ── */
+.cover{min-height:100svh;background:var(--than);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
+.cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 20%,rgba(107,125,105,.18) 0%,transparent 55%),radial-gradient(ellipse at 20% 85%,rgba(192,120,90,.12) 0%,transparent 50%);}
+.cover-left{display:flex;flex-direction:column;justify-content:center;padding:clamp(40px,7vw,80px) clamp(20px,5vw,60px) clamp(40px,7vw,80px) clamp(20px,6vw,80px);position:relative;z-index:1;}
+.cover-brand{display:flex;align-items:baseline;gap:12px;margin-bottom:clamp(28px,5vw,52px);}
+.brand-script{font-family:var(--script);font-size:clamp(20px,2.5vw,28px);color:var(--xanh-nhe);line-height:1;}
+.brand-sep{width:1px;height:20px;background:rgba(255,255,255,.15);margin:0 4px;align-self:center;}
+.brand-sub{font-size:clamp(8px,1vw,10px);letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.35);font-weight:500;}
+.cover-tag{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--xanh-nhe);font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:12px;}
+.cover-tag::before{content:'';width:24px;height:1px;background:var(--xanh-nhe);flex-shrink:0;}
+.cover-title{font-family:var(--serif);font-size:clamp(22px,4vw,52px);font-weight:200;line-height:1.2;color:white;margin-bottom:8px;letter-spacing:.06em;text-transform:uppercase;}
+.cover-title strong{font-weight:600;color:var(--xanh-nhe);}
+.cover-subtitle{font-family:var(--script);font-size:clamp(20px,2.8vw,30px);color:var(--dat-nhe);margin-bottom:22px;}
+.cover-desc{color:rgba(255,255,255,.5);font-size:clamp(11px,1.3vw,13px);line-height:1.85;margin-bottom:32px;}
+.cover-meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.meta-item{border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:11px 13px;background:rgba(255,255,255,.03);}
+.meta-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:3px;}
+.meta-val{font-size:clamp(11px,1.3vw,13px);font-weight:600;color:white;}
+
+.cover-right{display:grid;grid-template-rows:repeat(4,1fr);position:relative;z-index:1;}
+.cover-panel{display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(14px,2vw,28px) clamp(14px,2.5vw,32px);position:relative;overflow:hidden;}
+.cp-1{background:rgba(107,125,105,.12);border-left:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);}
+.cp-2{background:rgba(226,196,181,.10);border-left:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);}
+.cp-3{background:rgba(192,120,90,.10);border-left:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);}
+.cp-4{background:rgba(154,112,85,.08);border-left:1px solid rgba(255,255,255,.05);}
+.cp-num{font-family:var(--serif);font-size:clamp(32px,5vw,56px);font-weight:100;color:rgba(255,255,255,.04);position:absolute;top:10px;right:14px;line-height:1;}
+.cp-icon{font-size:clamp(16px,2vw,22px);margin-bottom:6px;}
+.cp-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:3px;}
+.cp-val{font-family:var(--serif);font-size:clamp(10px,1.2vw,13px);font-weight:200;color:rgba(255,255,255,.7);letter-spacing:.05em;text-transform:uppercase;line-height:1.3;}
+
+/* ── SHARED ── */
+.sec{padding:clamp(28px,5vw,60px) var(--pad);}
+.sec-light{background:var(--sua);}
+.sec-warm{background:var(--hong-pale);}
+.sec-dark{background:var(--than);color:white;}
+.section-label{font-size:9px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:12px;}
+.section-label::before{content:'';width:20px;height:1px;flex-shrink:0;}
+.lbl-xanh{color:var(--xanh);}.lbl-xanh::before{background:var(--xanh);}
+.lbl-dat{color:var(--dat);}.lbl-dat::before{background:var(--dat);}
+.lbl-white{color:var(--xanh-nhe);}.lbl-white::before{background:var(--xanh-nhe);}
+.section-title{font-family:var(--serif);font-size:clamp(17px,3vw,34px);font-weight:200;letter-spacing:.07em;text-transform:uppercase;margin-bottom:6px;line-height:1.25;}
+.section-title em{font-style:normal;color:var(--xanh);font-weight:500;}
+.section-title em.white{color:var(--xanh-nhe);}
+.section-intro{color:var(--than-nhe);font-size:clamp(11px,1.4vw,13px);line-height:1.8;margin-top:8px;}
+.divider{height:1px;background:var(--line);margin:0 var(--pad);}
+
+/* ── PIPELINE ── */
+.pipeline{display:flex;gap:0;margin-top:28px;overflow-x:auto;padding-bottom:8px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--xanh-pale) transparent;}
+.pipeline::-webkit-scrollbar{height:3px;}
+.pipeline::-webkit-scrollbar-thumb{background:var(--xanh-pale);border-radius:2px;}
+.pipe-box{flex:0 0 clamp(150px,20vw,200px);border:1px solid var(--line);position:relative;}
+.pipe-box::after{content:'→';position:absolute;right:-13px;top:50%;transform:translateY(-50%);font-size:14px;color:var(--xanh);z-index:2;}
+.pipe-box:last-child::after{display:none;}
+.pipe-head{padding:14px 14px 11px;border-bottom:1px solid var(--line);}
+.pipe-num{font-family:var(--serif);font-size:clamp(22px,3vw,26px);font-weight:100;line-height:1;margin-bottom:4px;}
+.pipe-name{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.3;}
+.pipe-time{font-size:9px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;margin-top:5px;}
+.pipe-body{padding:11px 14px;}
+.pipe-item{display:flex;align-items:flex-start;gap:7px;font-size:11px;color:var(--than-nhe);padding:4px 0;border-bottom:1px solid var(--line);line-height:1.4;}
+.pipe-item:last-child{border-bottom:none;}
+.pipe-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+.pb1{background:rgba(107,125,105,.06);}.pb1 .pipe-num{color:var(--xanh);}.pb1 .pipe-name,.pb1 .pipe-time{color:var(--xanh-nhe);}.pb1 .pipe-dot{background:var(--xanh);}
+.pb2{background:rgba(226,196,181,.08);}.pb2 .pipe-num{color:var(--hong-deep);}.pb2 .pipe-name{color:var(--dat);}.pb2 .pipe-time{color:var(--dat-nhe);}.pb2 .pipe-dot{background:var(--hong-deep);}
+.pb3{background:rgba(192,120,90,.06);}.pb3 .pipe-num{color:var(--dat);}.pb3 .pipe-name{color:var(--dat);}.pb3 .pipe-time{color:var(--dat-nhe);}.pb3 .pipe-dot{background:var(--dat-nhe);}
+.pb4{background:rgba(154,112,85,.06);}.pb4 .pipe-num{color:var(--nau);}.pb4 .pipe-name,.pb4 .pipe-time{color:var(--nau);}.pb4 .pipe-dot{background:var(--nau);}
+
+/* ── PHASE HEADER ── */
+.phase-hd{display:flex;align-items:flex-start;gap:18px;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid var(--line);}
+.phase-big-num{font-family:var(--serif);font-size:clamp(44px,8vw,80px);font-weight:100;line-height:.9;flex-shrink:0;}
+.ph-c1 .phase-big-num{color:var(--xanh-pale);}
+.ph-c2 .phase-big-num{color:var(--dat-pale);}
+.ph-c3 .phase-big-num{color:var(--hong);}
+.ph-c4 .phase-big-num{color:var(--vang);}
+.phase-tag{font-size:9px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;margin-bottom:5px;}
+.ph-c1 .phase-tag{color:var(--xanh);}
+.ph-c2 .phase-tag,.ph-c3 .phase-tag{color:var(--dat);}
+.ph-c4 .phase-tag{color:var(--nau);}
+.phase-name{font-family:var(--serif);font-size:clamp(15px,2.5vw,28px);font-weight:200;letter-spacing:.08em;text-transform:uppercase;color:var(--than);margin-bottom:5px;line-height:1.25;}
+.phase-desc{color:var(--than-nhe);font-size:clamp(11px,1.3vw,13px);line-height:1.7;}
+.phase-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid currentColor;border-radius:100px;padding:4px 12px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-top:10px;}
+.ph-c1 .phase-badge{color:var(--xanh);}
+.ph-c2 .phase-badge,.ph-c3 .phase-badge{color:var(--dat);}
+.ph-c4 .phase-badge{color:var(--nau);}
+
+/* ── CARDS ── */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:14px;}
+.card{border:1px solid var(--line);background:var(--sua);border-radius:2px;overflow:hidden;transition:box-shadow .3s;}
+.card:hover{box-shadow:0 4px 20px rgba(46,42,37,.07);}
+.card.wide{grid-column:1/-1;}
+.card-top{height:3px;}
+.c-xanh .card-top{background:linear-gradient(90deg,var(--xanh),var(--xanh-nhe));}
+.c-dat .card-top{background:linear-gradient(90deg,var(--dat),var(--dat-nhe));}
+.c-nau .card-top{background:linear-gradient(90deg,var(--nau),var(--dat-nhe));}
+.card-body{padding:clamp(14px,3vw,22px);}
+.card-hd{display:flex;align-items:center;gap:9px;margin-bottom:9px;}
+.card-num{font-family:var(--serif);font-size:clamp(20px,3vw,28px);font-weight:100;opacity:.2;flex-shrink:0;line-height:1;}
+.card-icon{font-size:17px;flex-shrink:0;}
+.card-title{font-size:clamp(10px,1.3vw,12px);font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--than);line-height:1.3;}
+.card-sub{font-size:clamp(11px,1.3vw,12px);color:var(--than-nhe);margin-bottom:11px;line-height:1.6;}
+
+/* ── 5W1H TABLE ── */
+.fw-row{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:2px;overflow:hidden;margin-bottom:12px;}
+.fw-cell{padding:9px 11px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);}
+.fw-cell:nth-child(3n){border-right:none;}
+/* Remove bottom border on last row automatically via JS */
+.fw-key{font-size:clamp(7px,.9vw,8px);letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:2px;}
+.fw-val{font-size:clamp(10px,1.2vw,12px);color:var(--than-nhe);line-height:1.4;}
+.fw-key.k-xanh{color:var(--xanh);}
+.fw-key.k-dat{color:var(--dat);}
+.fw-key.k-nau{color:var(--nau);}
+
+/* ── CHECKLIST ── */
+.checklist{list-style:none;}
+.checklist li{display:flex;align-items:flex-start;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:clamp(11px,1.3vw,12px);color:var(--than-nhe);line-height:1.5;}
+.checklist li:last-child{border-bottom:none;}
+.cb{width:18px;height:18px;min-width:18px;border:1.5px solid var(--xanh-nhe);border-radius:2px;flex-shrink:0;appearance:none;-webkit-appearance:none;position:relative;cursor:pointer;transition:all .2s;}
+.cb:checked{background:var(--xanh);border-color:var(--xanh);}
+.cb.dat{border-color:var(--dat-nhe);}
+.cb.dat:checked{background:var(--dat);border-color:var(--dat);}
+.cb:checked::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:700;}
+
+/* ── CALLOUT ── */
+.callout{border-radius:4px;padding:10px 12px;margin-top:11px;display:flex;align-items:flex-start;gap:9px;font-size:clamp(11px,1.2vw,12px);line-height:1.6;}
+.tip{background:rgba(107,125,105,.07);border-left:3px solid var(--xanh);}
+.warn{background:rgba(192,120,90,.07);border-left:3px solid var(--dat);}
+.gold{background:rgba(232,220,200,.5);border-left:3px solid var(--vang);}
+.callout strong{font-weight:700;display:block;margin-bottom:2px;}
+
+/* ── OUTPUT / RESULT BOX ── */
+.output-box{background:var(--xanh-pale);border:1px solid rgba(107,125,105,.3);border-radius:4px;padding:13px;margin-top:11px;}
+.output-lbl{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--xanh);font-weight:700;margin-bottom:4px;}
+.output-txt{font-family:var(--serif);font-style:italic;font-size:clamp(11px,1.3vw,13px);color:var(--than);line-height:1.75;border-left:2px solid var(--xanh-nhe);padding-left:11px;}
+.result-box{background:rgba(107,125,105,.06);border:1px solid var(--xanh-pale);border-radius:4px;padding:12px;margin-top:11px;}
+.result-lbl{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--xanh);font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+.result-lbl::before{content:'✅';font-size:11px;}
+.result-items{list-style:none;}
+.result-items li{font-size:clamp(10px,1.2vw,11px);color:var(--than-nhe);padding:4px 0;border-bottom:1px solid rgba(107,125,105,.1);line-height:1.5;}
+.result-items li:last-child{border-bottom:none;}
+.result-items li::before{content:'→ ';color:var(--xanh);font-weight:700;}
+
+/* ── SCROLLABLE TABLE ── */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:11px;border-radius:2px;border:1px solid var(--line);}
+.table-wrap::-webkit-scrollbar{height:3px;}
+.table-wrap::-webkit-scrollbar-thumb{background:var(--xanh-pale);}
+.data-table{width:100%;border-collapse:collapse;font-size:clamp(10px,1.2vw,12px);min-width:320px;}
+.data-table th{text-align:left;padding:9px 12px;font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--xanh);border-bottom:2px solid var(--xanh-pale);background:rgba(107,125,105,.04);white-space:nowrap;}
+.data-table td{padding:8px 12px;border-bottom:1px solid var(--line);color:var(--than-nhe);vertical-align:top;line-height:1.45;}
+.data-table tr:last-child td{border-bottom:none;}
+.tag-role{display:inline-block;background:var(--xanh-pale);color:var(--xanh);font-size:9px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:100px;white-space:nowrap;}
+
+/* ── TWO COL ── */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.col-head{font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-bottom:7px;}
+
+/* ── MASTER CHECKLIST DARK ── */
+.cl-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,4vw,32px);margin-top:28px;}
+.cl-col-head{font-size:9px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1);}
+.ch1{color:var(--xanh-nhe);}
+.ch2{color:var(--dat-nhe);}
+.ch3{color:var(--vang);}
+.ch4{color:var(--hong);}
+.cl-item{display:flex;align-items:flex-start;gap:11px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.cl-item:last-child{border-bottom:none;}
+.cl-cb{width:18px;height:18px;min-width:18px;border:1.5px solid rgba(255,255,255,.2);border-radius:2px;flex-shrink:0;margin-top:1px;appearance:none;-webkit-appearance:none;cursor:pointer;background:transparent;position:relative;transition:all .2s;}
+.cl-cb:checked{background:var(--xanh);border-color:var(--xanh);}
+.cl-cb.dat:checked{background:var(--dat);border-color:var(--dat);}
+.cl-cb:checked::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;font-size:11px;font-weight:700;}
+.cl-txt{font-size:clamp(11px,1.3vw,12px);color:rgba(255,255,255,.6);line-height:1.55;}
+.cl-txt strong{color:rgba(255,255,255,.9);font-weight:600;}
+
+/* ── KPI ── */
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,2vw,18px);margin-top:22px;}
+.kpi-card{border:1px solid var(--line);border-radius:2px;padding:clamp(14px,2.5vw,22px);background:var(--kem);}
+.kpi-lbl{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--xanh-nhe);font-weight:600;margin-bottom:7px;line-height:1.4;}
+.kpi-val{font-family:var(--serif);font-size:clamp(22px,4vw,30px);font-weight:100;color:var(--than);line-height:1;margin-bottom:3px;}
+.kpi-unit{font-size:clamp(10px,1.1vw,11px);color:var(--than-nhe);line-height:1.4;}
+.kpi-bar{height:3px;background:var(--xanh-pale);border-radius:2px;margin-top:10px;}
+.kpi-bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--xanh),var(--xanh-nhe));}
+.kpi-note{font-size:clamp(10px,1.1vw,11px);color:var(--than-nhe);margin-top:5px;line-height:1.4;}
+
+/* ── PRINCIPLES ── */
+.principles{display:grid;grid-template-columns:repeat(5,1fr);gap:11px;margin-top:20px;}
+.prin{text-align:center;padding:clamp(12px,2vw,18px) 8px;border:1px solid rgba(107,125,105,.2);border-radius:4px;background:rgba(255,255,255,.4);}
+.prin-icon{font-size:clamp(20px,3vw,28px);margin-bottom:7px;}
+.prin-name{font-family:var(--script);font-size:clamp(12px,1.5vw,15px);color:var(--xanh);margin-bottom:5px;}
+.prin-desc{font-size:clamp(9px,1.1vw,11px);color:var(--nau);line-height:1.55;}
+
+/* ── FOOTER ── */
+.sop-footer{padding:clamp(22px,3.5vw,32px) var(--pad);background:var(--kem);border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;}
+.footer-brand{font-family:var(--script);font-size:clamp(17px,2.5vw,22px);color:var(--xanh);}
+.footer-tagline{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--xanh-nhe);margin-top:3px;}
+.footer-info{font-size:clamp(10px,1.2vw,11px);color:var(--than-nhe);text-align:right;line-height:1.7;}
+
+/* ════════════════════════════════════
+   TABLET  ≤ 900px
+════════════════════════════════════ */
+@media(max-width:900px){
+  .cover{grid-template-columns:1fr;}
+  .cover-right{grid-template-rows:none;grid-template-columns:repeat(4,1fr);min-height:110px;}
+  .cover-panel{justify-content:flex-start;}
+  .cp-num{display:none;}
+
+  .phase-hd{flex-direction:column;gap:8px;}
+
+  /* fw-row: 2 columns */
+  .fw-row{grid-template-columns:1fr 1fr;}
+
+  .two-col{grid-template-columns:1fr;}
+
+  .kpi-grid{grid-template-columns:1fr 1fr;}
+
+  .principles{grid-template-columns:repeat(3,1fr);}
+
+  .sop-footer{flex-direction:column;align-items:flex-start;gap:10px;}
+  .footer-info{text-align:left;}
+}
+
+/* ════════════════════════════════════
+   MOBILE  ≤ 600px
+════════════════════════════════════ */
+@media(max-width:600px){
+  /* cover right: 2x2 */
+  .cover-right{grid-template-columns:1fr 1fr;}
+
+  /* fw-row: single column */
+  .fw-row{grid-template-columns:1fr !important;}
+  .fw-cell{border-right:none !important;border-bottom:1px solid var(--line) !important;}
+  .fw-cell:last-child{border-bottom:none !important;}
+
+  /* checklist easier tap */
+  .checklist li{gap:12px;padding:9px 0;}
+  .cb,.cl-cb{width:20px;height:20px;min-width:20px;}
+
+  /* master checklist: single col */
+  .cl-grid{grid-template-columns:1fr;}
+
+  /* kpi single */
+  .kpi-grid{grid-template-columns:1fr;}
+
+  /* principles 2 col */
+  .principles{grid-template-columns:repeat(2,1fr);}
+}
+
+/* ════════════════════════════════════
+   SMALL MOBILE  ≤ 380px
+════════════════════════════════════ */
+@media(max-width:380px){
+  .cover-right{grid-template-columns:1fr 1fr;}
+  .cover-panel{min-height:72px;}
+  .principles{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="cover-left">
+    <div class="cover-brand">
+      <span class="brand-script">Ngọt</span>
+      <span class="brand-sep"></span>
+      <span class="brand-sub">Studio · Tài Liệu Nội Bộ</span>
+    </div>
+    <div class="cover-tag">✦ Quy Trình Chuẩn Hoá</div>
+    <h1 class="cover-title">SOP <strong>Lên Concept</strong><br>Mới Cho Bộ Phận</h1>
+    <div class="cover-subtitle">Sáng tạo có hệ thống</div>
+    <p class="cover-desc">Quy trình chuẩn hoá từ phân tích dữ liệu kinh doanh đến đưa concept ra thị trường — đảm bảo mỗi concept đều có mục tiêu rõ ràng, được đo lường và tái sử dụng được.</p>
+    <div class="cover-meta">
+      <div class="meta-item"><div class="meta-label">Bộ Phận</div><div class="meta-val">Sản Xuất</div></div>
+      <div class="meta-item"><div class="meta-label">Chu Kỳ</div><div class="meta-val">Hằng Tháng</div></div>
+      <div class="meta-item"><div class="meta-label">Phiên Bản</div><div class="meta-val">1.0 — 2025</div></div>
+      <div class="meta-item"><div class="meta-label">Ngân Sách</div><div class="meta-val">5% Doanh Thu</div></div>
+    </div>
+  </div>
+  <div class="cover-right">
+    <div class="cover-panel cp-1"><div class="cp-num">01</div><div class="cp-icon">📊</div><div class="cp-label">Giai Đoạn 1</div><div class="cp-val">Phân Tích Dữ Liệu</div></div>
+    <div class="cover-panel cp-2"><div class="cp-num">02</div><div class="cp-icon">💡</div><div class="cp-label">Giai Đoạn 2</div><div class="cp-val">Tìm Ý Tưởng & Đề Xuất</div></div>
+    <div class="cover-panel cp-3"><div class="cp-num">03</div><div class="cp-icon">📋</div><div class="cp-label">Giai Đoạn 3</div><div class="cp-val">Lập Kế Hoạch Sản Xuất</div></div>
+    <div class="cover-panel cp-4"><div class="cp-num">04</div><div class="cp-icon">🚀</div><div class="cp-label">Giai Đoạn 4</div><div class="cp-val">Triển Khai & Đánh Giá</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ TỔNG QUAN ══ -->
+<div class="sec sec-light">
+  <div class="section-label lbl-xanh">Tổng Quan Quy Trình</div>
+  <h2 class="section-title">Concept tốt không phải may mắn —<br>concept tốt là <em>hệ thống</em></h2>
+  <p class="section-intro">Mỗi concept mới tại Ngọt Studio phải có căn cứ từ dữ liệu thực, được duyệt qua quy trình bài bản, và có đầu ra đo lường được. Bộ phận sản xuất không chỉ sáng tạo — mà sáng tạo đúng hướng, đúng thời điểm, đúng nguồn lực.</p>
+  <div class="pipeline">
+    <div class="pipe-box pb1">
+      <div class="pipe-head"><div class="pipe-num">01</div><div class="pipe-name">Phân Tích Dữ Liệu</div><div class="pipe-time">⏱ Ngày 1–3 hằng tháng</div></div>
+      <div class="pipe-body">
+        <div class="pipe-item"><span class="pipe-dot"></span>Nhận báo cáo từ Kinh doanh</div>
+        <div class="pipe-item"><span class="pipe-dot"></span>Đọc insight khách hàng</div>
+        <div class="pipe-item"><span class="pipe-dot"></span>Phân bổ quỹ concept</div>
+      </div>
+    </div>
+    <div class="pipe-box pb2">
+      <div class="pipe-head"><div class="pipe-num">02</div><div class="pipe-name">Tìm Ý Tưởng</div><div class="pipe-time">⏱ Ngày 3–7 hằng tháng</div></div>
+      <div class="pipe-body">
+        <div class="pipe-item"><span class="pipe-dot"></span>Research trend trong & ngoài nước</div>
+        <div class="pipe-item"><span class="pipe-dot"></span>Lập bảng đề xuất concept</div>
+        <div class="pipe-item"><span class="pipe-dot"></span>Trình duyệt ngân sách</div>
+      </div>
+    </div>
+    <div class="pipe-box pb3">
+      <div class="pipe-head"><div class="pipe-num">03</div><div class="pipe-name">Kế Hoạch Sản Xuất</div><div class="pipe-time">⏱ Ngày 7–14 hằng tháng</div></div>
+      <div class="pipe-body">
+        <div class="pipe-item"><span class="pipe-dot"></span>Lên kế hoạch setup & ekip</div>
+        <div class="pipe-item"><span class="pipe-dot"></span>Phân công nhân sự</div>
+        <div class="pipe-item"><span class="pipe-dot"></span>Lịch chụp thử & quay visual</div>
+      </div>
+    </div>
+    <div class="pipe-box pb4">
+      <div class="pipe-head"><div class="pipe-num">04</div><div class="pipe-name">Triển Khai & Đánh Giá</div><div class="pipe-time">⏱ Ngày 14 → cuối tháng</div></div>
+      <div class="pipe-body">
+        <div class="pipe-item"><span class="pipe-dot"></span>Chụp – quay – dựng concept</div>
+        <div class="pipe-item"><span class="pipe-dot"></span>Bàn giao visual cho Marketing</div>
+        <div class="pipe-item"><span class="pipe-dot"></span>Đánh giá hiệu quả</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ PHASE 1 ══ -->
+<div class="sec ph-c1">
+  <div class="phase-hd ph-c1">
+    <div class="phase-big-num">01</div>
+    <div>
+      <div class="phase-tag">📊 Giai Đoạn 1</div>
+      <h2 class="phase-name">Phân Tích Dữ Liệu Kinh Doanh</h2>
+      <p class="phase-desc">Concept không bắt đầu từ cảm hứng — concept bắt đầu từ số liệu. Giai đoạn này đảm bảo mọi quyết định sáng tạo đều có dữ liệu thực tế làm nền tảng, tránh lãng phí quỹ concept vào ý tưởng không có thị trường tại Ngọt.</p>
+      <span class="phase-badge">⏱ Hoàn thành trước ngày 3 hằng tháng</span>
+    </div>
+  </div>
+  <div class="cards-grid c-xanh">
+
+    <div class="card c-xanh wide">
+      <div class="card-top"></div>
+      <div class="card-body">
+        <div class="card-hd"><span class="card-num">01</span><span class="card-icon">📤</span><span class="card-title">Kinh Doanh Gửi Báo Cáo Tháng Trước</span></div>
+        <p class="card-sub">Báo cáo là "nguyên liệu thô" — nếu thiếu hoặc sai, toàn bộ quy trình phía sau mất căn cứ. Sale & Marketing phải gửi đúng hạn và đúng định dạng quy định trên Larkbase.</p>
+        <div class="fw-row" data-cols="3">
+          <div class="fw-cell"><div class="fw-key k-xanh">👤 Ai làm</div><div class="fw-val">Bộ phận Kinh doanh (Sale & Marketing)</div></div>
+          <div class="fw-cell"><div class="fw-key k-dat">⏰ Khi nào</div><div class="fw-val">Trước ngày 2 hằng tháng</div></div>
+          <div class="fw-cell"><div class="fw-key k-nau">❓ Tại sao</div><div class="fw-val">Cung cấp dữ liệu thực làm nền cho quyết định sáng tạo</div></div>
+          <div class="fw-cell"><div class="fw-key k-xanh">⚙️ Làm thế nào</div><div class="fw-val">Điền vào Bảng 4.4 trên Larkbase: concept yêu thích, tỉ lệ booking từng gói (Baby – Gia đình – Bầu – Newborn – Beauty)</div></div>
+          <div class="fw-cell"><div class="fw-key k-dat">📍 Tại đâu</div><div class="fw-val">Hệ thống Larkbase — Quản lý Concept</div></div>
+          <div class="fw-cell"><div class="fw-key k-nau">✅ Kết quả chuẩn</div><div class="fw-val">Báo cáo đầy đủ: top 3 concept, tỉ lệ booking 5 gói, tổng doanh thu tháng</div></div>
+        </div>
+        <ul class="checklist" style="margin-top:11px;">
+          <li><input type="checkbox" class="cb"> Top concept khách yêu thích (tên + số lượt booking)</li>
+          <li><input type="checkbox" class="cb"> Tỉ lệ booking từng gói (Baby / Gia đình / Bầu / Newborn / Beauty)</li>
+          <li><input type="checkbox" class="cb"> Tổng doanh thu tháng trước (để tính quỹ concept = 5%)</li>
+          <li><input type="checkbox" class="cb"> Ghi chú phản hồi đặc biệt từ khách hàng về concept</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card c-xanh">
+      <div class="card-top"></div>
+      <div class="card-body">
+        <div class="card-hd"><span class="card-num">02</span><span class="card-icon">🔍</span><span class="card-title">Bộ Phận Sản Xuất Đọc & Tổng Hợp Insight</span></div>
+        <p class="card-sub">Đọc không đủ — phải tổng hợp thành insight có thể hành động được. Trưởng Sản xuất dẫn dắt buổi đọc báo cáo cùng Stylist và Photo.</p>
+        <div class="fw-row" data-cols="3">
+          <div class="fw-cell"><div class="fw-key k-xanh">👤 Ai làm</div><div class="fw-val">Trưởng Sản xuất + Stylist + Photographer</div></div>
+          <div class="fw-cell"><div class="fw-key k-dat">⏰ Khi nào</div><div class="fw-val">Ngày 2–3 hằng tháng (sau khi nhận báo cáo)</div></div>
+          <div class="fw-cell"><div class="fw-key k-nau">✅ Kết quả chuẩn</div><div class="fw-val">Bảng insight tóm tắt: style hot, tone màu ưa thích, gói booking cao nhất</div></div>
+        </div>
+        <ul class="checklist" style="margin-top:11px;">
+          <li><input type="checkbox" class="cb"> Style khách chọn nhiều nhất trong tháng</li>
+          <li><input type="checkbox" class="cb"> Tone màu ưa thích (warm / cool / pastel / dark)</li>
+          <li><input type="checkbox" class="cb"> Thể loại chụp được booking cao nhất</li>
+          <li><input type="checkbox" class="cb"> Concept nào booking thấp — vì sao?</li>
+        </ul>
+        <div class="callout tip"><span>💡</span><div>Nếu một concept liên tục thấp booking — đừng vội bỏ. Xem lại ảnh visual, cách truyền thông, hay thực sự concept đó không phù hợp với khách Ngọt.</div></div>
+      </div>
+    </div>
+
+    <div class="card c-xanh">
+      <div class="card-top"></div>
+      <div class="card-body">
+        <div class="card-hd"><span class="card-num">03</span><span class="card-icon">💰</span><span class="card-title">Phân Bổ Quỹ Concept Mới</span></div>
+        <p class="card-sub">Quỹ concept = 5% doanh thu tháng trước, phân bổ theo tỉ lệ booking từng gói. Gói nào booking cao hơn — được phân bổ nhiều hơn.</p>
+        <div class="fw-row" data-cols="3">
+          <div class="fw-cell"><div class="fw-key k-xanh">👤 Ai làm</div><div class="fw-val">Trưởng Sản xuất</div></div>
+          <div class="fw-cell"><div class="fw-key k-dat">⏰ Khi nào</div><div class="fw-val">Ngày 3 — sau khi đọc insight xong</div></div>
+          <div class="fw-cell"><div class="fw-key k-nau">✅ Kết quả chuẩn</div><div class="fw-val">Bảng phân bổ quỹ theo từng gói, được Quản lý xác nhận</div></div>
+        </div>
+        <div class="output-box">
+          <div class="output-lbl">Công thức tính quỹ</div>
+          <div class="output-txt">Quỹ concept tháng này = Doanh thu tháng trước × 5%<br>Phân bổ theo tỉ lệ booking: Gói Baby 40% → 40% quỹ concept cho Baby</div>
+        </div>
+        <div class="callout warn"><span>⚠️</span><div><strong>Lưu ý:</strong> Không dùng quỹ này cho chi phí sản xuất thông thường. Quỹ concept chỉ dành cho concept hoàn toàn mới chưa có trong danh sách hiện tại.</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ PHASE 2 ══ -->
+<div class="sec sec-light ph-c2">
+  <div class="phase-hd ph-c2">
+    <div class="phase-big-num">02</div>
+    <div>
+      <div class="phase-tag">💡 Giai Đoạn 2</div>
+      <h2 class="phase-name">Tìm Ý Tưởng & Đề Xuất Concept Mới</h2>
+      <p class="phase-desc">Sáng tạo có chủ đích — tìm ý tưởng dựa trên insight đã có từ Giai đoạn 1, không phải dựa trên sở thích cá nhân. Mỗi concept đề xuất phải trả lời được: phục vụ ai, bán cái gì, và tạo ra bao nhiêu booking dự kiến.</p>
+      <span class="phase-badge">⏱ Hoàn thành trước ngày 7 hằng tháng</span>
+    </div>
+  </div>
+  <div class="cards-grid c-dat">
+
+    <div class="card c-dat wide">
+      <div class="card-top"></div>
+      <div class="card-body">
+        <div class="card-hd"><span class="card-num">04</span><span class="card-icon">🌐</span><span class="card-title">Tìm Kiếm Ý Tưởng Concept Mới</span></div>
+        <p class="card-sub">Research có hệ thống — không scroll ngẫu nhiên. Stylist và Photographer cùng tham gia, mỗi người phụ trách một nguồn khác nhau để tránh trùng lặp.</p>
+        <div class="fw-row" data-cols="3">
+          <div class="fw-cell"><div class="fw-key k-xanh">👤 Ai làm</div><div class="fw-val">Stylist + Photographer (phân công nguồn research)</div></div>
+          <div class="fw-cell"><div class="fw-key k-dat">⏰ Khi nào</div><div class="fw-val">Ngày 3–6 hằng tháng</div></div>
+          <div class="fw-cell"><div class="fw-key k-nau">❓ Tại sao</div><div class="fw-val">Đảm bảo concept có tính thị trường, không chỉ đẹp theo ý chủ quan</div></div>
+          <div class="fw-cell"><div class="fw-key k-xanh">⚙️ Làm thế nào</div><div class="fw-val">Lưu ý tưởng vào folder tập trung, gắn nhãn nguồn và gói dịch vụ phù hợp</div></div>
+          <div class="fw-cell"><div class="fw-key k-dat">📍 Nguồn tham khảo</div><div class="fw-val">Facebook, Douyin, Pinterest theo danh sách Studio cung cấp</div></div>
+          <div class="fw-cell"><div class="fw-key k-nau">✅ Kết quả chuẩn</div><div class="fw-val">Tối thiểu 5 ý tưởng concept lưu tập trung, có link tham khảo</div></div>
+        </div>
+        <div class="two-col" style="margin-top:13px;">
+          <div>
+            <div class="col-head" style="color:var(--xanh);">Nguồn research ưu tiên</div>
+            <ul class="checklist">
+              <li><input type="checkbox" class="cb dat"> Trend trong nước: Facebook, page studio VN uy tín</li>
+              <li><input type="checkbox" class="cb dat"> Trend quốc tế: Douyin (TikTok Trung), Pinterest</li>
+              <li><input type="checkbox" class="cb dat"> Style khách yêu thích (từ insight Bước 02)</li>
+              <li><input type="checkbox" class="cb dat"> Concept sinh nhật, milestone bé (theo mùa)</li>
+              <li><input type="checkbox" class="cb dat"> Concept style chuẩn Ngọt (tinh chỉnh định kỳ)</li>
+            </ul>
+          </div>
+          <div>
+            <div class="col-head" style="color:var(--dat);">Tiêu chí lọc ý tưởng</div>
+            <ul class="checklist">
+              <li><input type="checkbox" class="cb dat"> Phù hợp với ít nhất 1 gói dịch vụ Ngọt</li>
+              <li><input type="checkbox" class="cb dat"> Có thể thực hiện trong studio (không phụ thuộc địa điểm)</li>
+              <li><input type="checkbox" class="cb dat"> Tone màu trong palette Ngọt hoặc gần tương đồng</li>
+              <li><input type="checkbox" class="cb dat"> Chi phí setup ước tính nằm trong quỹ phân bổ</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card c-dat">
+      <div class="card-top"></div>
+      <div class="card-body">
+        <div class="card-hd"><span class="card-num">05</span><span class="card-icon">📝</span><span class="card-title">Lập Bảng Đề Xuất Concept</span></div>
+        <p class="card-sub">Mỗi concept đề xuất phải được trình bày đủ thông tin để Quản lý có thể ra quyết định chỉ bằng cách đọc bảng — không cần giải thích thêm.</p>
+        <div class="fw-row" data-cols="3">
+          <div class="fw-cell"><div class="fw-key k-xanh">👤 Ai làm</div><div class="fw-val">Stylist lập, Trưởng Sản xuất kiểm tra</div></div>
+          <div class="fw-cell"><div class="fw-key k-dat">⏰ Khi nào</div><div class="fw-val">Ngày 6 — hoàn thành trước buổi trình duyệt</div></div>
+          <div class="fw-cell"><div class="fw-key k-nau">✅ Kết quả chuẩn</div><div class="fw-val">Bảng đề xuất đầy đủ 7 cột theo template chuẩn</div></div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Hạng mục</th><th>Nội dung cần điền</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Tên concept</strong></td><td>Tên ngắn, gợi cảm xúc, dễ nhớ</td></tr>
+              <tr><td><strong>Thể loại</strong></td><td>Baby / Gia đình / Bầu / Newborn / Beauty</td></tr>
+              <tr><td><strong>Style</strong></td><td>Fine-art / Editorial / Lifestyle / Studio-classic</td></tr>
+              <tr><td><strong>Tone màu</strong></td><td>Mô tả + ảnh tham khảo moodboard</td></tr>
+              <tr><td><strong>Khách hàng mục tiêu</strong></td><td>Ai sẽ booking? Lý do họ chọn concept này?</td></tr>
+              <tr><td><strong>Ước tính chi phí</strong></td><td>Vật phẩm cần mua / thuê + nhân công</td></tr>
+              <tr><td><strong>Mục tiêu truyền thông</strong></td><td>Branding (thương hiệu) hay Bán hàng (tăng booking)?</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card c-dat">
+      <div class="card-top"></div>
+      <div class="card-body">
+        <div class="card-hd"><span class="card-num">06</span><span class="card-icon">✅</span><span class="card-title">Trình Duyệt & Phê Duyệt Ngân Sách</span></div>
+        <p class="card-sub">Buổi trình duyệt không phải để "xin phép" — mà để cùng nhau đánh giá xem concept có tiềm năng sinh ra doanh thu đủ để bù vào chi phí sản xuất không.</p>
+        <div class="fw-row" data-cols="3">
+          <div class="fw-cell"><div class="fw-key k-xanh">👤 Ai tham gia</div><div class="fw-val">Trưởng Sản xuất (trình bày) + Quản lý (phê duyệt)</div></div>
+          <div class="fw-cell"><div class="fw-key k-dat">⏰ Khi nào</div><div class="fw-val">Ngày 7 hằng tháng — buổi review 30 phút</div></div>
+          <div class="fw-cell"><div class="fw-key k-nau">✅ Kết quả chuẩn</div><div class="fw-val">Danh sách concept được duyệt + ngân sách xác nhận cho từng concept</div></div>
+        </div>
+        <ul class="checklist" style="margin-top:11px;">
+          <li><input type="checkbox" class="cb dat"> Trưởng Sản xuất trình bày bảng đề xuất (max 30 phút)</li>
+          <li><input type="checkbox" class="cb dat"> Quản lý phê duyệt / từ chối / điều chỉnh từng concept</li>
+          <li><input type="checkbox" class="cb dat"> Xác nhận ngân sách cho từng concept được duyệt</li>
+          <li><input type="checkbox" class="cb dat"> Ghi biên bản quyết định vào Larkbase</li>
+        </ul>
+        <div class="callout warn"><span>⚠️</span><div><strong>Không triển khai</strong> bất kỳ concept nào khi chưa có phê duyệt ngân sách bằng văn bản từ Quản lý.</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ PHASE 3 ══ -->
+<div class="sec ph-c3">
+  <div class="phase-hd ph-c3">
+    <div class="phase-big-num">03</div>
+    <div>
+      <div class="phase-tag">📋 Giai Đoạn 3</div>
+      <h2 class="phase-name">Lập Kế Hoạch Sản Xuất Concept</h2>
+      <p class="phase-desc">Concept được duyệt chỉ là ý tưởng trên giấy. Giai đoạn này biến ý tưởng thành kế hoạch có người chịu trách nhiệm, có timeline, và có checklist cụ thể — để không một chi tiết nào bị bỏ sót khi chụp thử.</p>
+      <span class="phase-badge">⏱ Hoàn thành trước ngày 14 hằng tháng</span>
+    </div>
+  </div>
+  <div class="cards-grid c-dat">
+
+    <div class="card c-dat wide">
+      <div class="card-top"></div>
+      <div class="card-body">
+        <div class="card-hd"><span class="card-num">07</span><span class="card-icon">🗂️</span><span class="card-title">Lập Kế Hoạch Triển Khai Chi Tiết</span></div>
+        <p class="card-sub">Trưởng Sản xuất chịu trách nhiệm lập kế hoạch đủ 3 mảng: setup, ekip, và đầu ra. Thiếu bất kỳ mảng nào, buổi chụp thử sẽ chạy không đủ.</p>
+        <div class="fw-row" data-cols="3">
+          <div class="fw-cell"><div class="fw-key k-xanh">👤 Ai làm</div><div class="fw-val">Trưởng Sản xuất (lập) + Quản lý (xác nhận lịch)</div></div>
+          <div class="fw-cell"><div class="fw-key k-dat">⏰ Khi nào</div><div class="fw-val">Ngày 8–10 hằng tháng</div></div>
+          <div class="fw-cell"><div class="fw-key k-nau">✅ Kết quả chuẩn</div><div class="fw-val">File kế hoạch đầy đủ 3 mảng, lưu Larkbase và thông báo tới từng bộ phận</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card c-dat">
+      <div class="card-top"></div>
+      <div class="card-body">
+        <div class="card-hd"><span class="card-num">08</span><span class="card-icon">🪴</span><span class="card-title">Kế Hoạch Setup Concept</span></div>
+        <p class="card-sub">Danh sách vật phẩm rõ ràng, ai setup cái gì — không để ngày chụp thử mới phát hiện thiếu đồ.</p>
+        <div class="fw-row" data-cols="3">
+          <div class="fw-cell"><div class="fw-key k-xanh">👤 Ai làm</div><div class="fw-val">Stylist + Phụ trách setup</div></div>
+          <div class="fw-cell"><div class="fw-key k-dat">⏰ Khi nào</div><div class="fw-val">Ngày 9–11, xong trước ngày chụp thử</div></div>
+          <div class="fw-cell"><div class="fw-key k-nau">✅ Kết quả chuẩn</div><div class="fw-val">Danh sách mua sắm đã xong, không còn item pending</div></div>
+        </div>
+        <ul class="checklist" style="margin-top:11px;">
+          <li><input type="checkbox" class="cb dat"> Lập danh sách vật phẩm cần mua (tên, số lượng, nơi mua)</li>
+          <li><input type="checkbox" class="cb dat"> Kiểm tra vật phẩm có thể tái sử dụng từ kho concept cũ</li>
+          <li><input type="checkbox" class="cb dat"> Phân công: ai đặt hàng, ai nhận hàng, ai kiểm tra</li>
+          <li><input type="checkbox" class="cb dat"> Thống nhất cách bài trí không gian chụp (vẽ sơ đồ nếu cần)</li>
+          <li><input type="checkbox" class="cb dat"> Chụp ảnh kho vật phẩm sau khi mua đủ để đối soát</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card c-dat">
+      <div class="card-top"></div>
+      <div class="card-body">
+        <div class="card-hd"><span class="card-num">09</span><span class="card-icon">👥</span><span class="card-title">Phân Công Ekip Thực Hiện</span></div>
+        <p class="card-sub">Mỗi concept phải có ekip rõ ràng với người chịu trách nhiệm từng vai trò. Không có người dự phòng = rủi ro ngày chụp thử bị trễ hoặc huỷ.</p>
+        <div class="fw-row" data-cols="3">
+          <div class="fw-cell"><div class="fw-key k-xanh">👤 Ai làm</div><div class="fw-val">Trưởng Sản xuất (phân công) + từng thành viên xác nhận</div></div>
+          <div class="fw-cell"><div class="fw-key k-dat">⏰ Khi nào</div><div class="fw-val">Ngày 10 — thông báo trước chụp thử ít nhất 3 ngày</div></div>
+          <div class="fw-cell"><div class="fw-key k-nau">✅ Kết quả chuẩn</div><div class="fw-val">Lịch chụp thử xác nhận, 100% ekip biết lịch và vai trò</div></div>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead><tr><th>Vai trò</th><th>Trách nhiệm</th><th>Người phụ trách</th></tr></thead>
+            <tbody>
+              <tr><td><span class="tag-role">Photographer</span></td><td>Chụp ảnh thử, quay visual hậu trường</td><td style="color:var(--dat-nhe);font-style:italic;">Ghi tên nhân sự</td></tr>
+              <tr><td><span class="tag-role">Makeup</span></td><td>Làm makeup theo moodboard concept mới</td><td style="color:var(--dat-nhe);font-style:italic;">Ghi tên nhân sự</td></tr>
+              <tr><td><span class="tag-role">Stylist</span></td><td>Trang phục + phụ kiện, giám sát setup</td><td style="color:var(--dat-nhe);font-style:italic;">Ghi tên nhân sự</td></tr>
+              <tr><td><span class="tag-role">Hậu kỳ</span></td><td>Chỉnh màu, retouch ảnh key, dựng video</td><td style="color:var(--dat-nhe);font-style:italic;">Ghi tên nhân sự</td></tr>
+              <tr><td><span class="tag-role">Media</span></td><td>Visual truyền thông (banner, avatar, IG)</td><td style="color:var(--dat-nhe);font-style:italic;">Ghi tên nhân sự</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="card c-dat">
+      <div class="card-top"></div>
+      <div class="card-body">
+        <div class="card-hd"><span class="card-num">10</span><span class="card-icon">🖼️</span><span class="card-title">Kế Hoạch Đầu Ra Visual</span></div>
+        <p class="card-sub">Xác định rõ số lượng và format ảnh/video cần có trước khi chụp — tránh chụp xong mới phát hiện thiếu góc, thiếu content cho Marketing.</p>
+        <div class="fw-row" data-cols="3">
+          <div class="fw-cell"><div class="fw-key k-xanh">👤 Ai làm</div><div class="fw-val">Photo + Media + Hậu kỳ (lên danh sách cùng nhau)</div></div>
+          <div class="fw-cell"><div class="fw-key k-dat">⏰ Khi nào</div><div class="fw-val">Ngày 11 — xác nhận trước ngày chụp thử</div></div>
+          <div class="fw-cell"><div class="fw-key k-nau">✅ Kết quả chuẩn</div><div class="fw-val">Shot list được duyệt, đủ ảnh key / video / visual truyền thông</div></div>
+        </div>
+        <ul class="checklist" style="margin-top:11px;">
+          <li><input type="checkbox" class="cb dat"> Số lượng ảnh key cần (ảnh đại diện concept)</li>
+          <li><input type="checkbox" class="cb dat"> Video hậu trường (thời lượng, định dạng: TikTok / Reels)</li>
+          <li><input type="checkbox" class="cb dat"> Visual truyền thông: ảnh key, banner Facebook, ảnh bìa</li>
+          <li><input type="checkbox" class="cb dat"> Ảnh avatar / thumbnail cho Larkbase / website</li>
+          <li><input type="checkbox" class="cb dat"> Shot list chi tiết: góc chụp, đạo cụ, ánh sáng từng frame</li>
+        </ul>
+        <div class="callout tip"><span>📐</span><div>Shot list là hợp đồng giữa Photo và Media — không có shot list, Media không thể làm visual đúng theo concept mong muốn.</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ PHASE 4 ══ -->
+<div class="sec sec-light ph-c4">
+  <div class="phase-hd ph-c4">
+    <div class="phase-big-num">04</div>
+    <div>
+      <div class="phase-tag">🚀 Giai Đoạn 4</div>
+      <h2 class="phase-name">Triển Khai & Đánh Giá Hiệu Quả</h2>
+      <p class="phase-desc">Concept chỉ có giá trị khi đi ra thị trường và tạo ra booking. Giai đoạn này đảm bảo visual được bàn giao đúng hạn cho Marketing, và sau 4 tuần chạy — có đánh giá rõ ràng để quyết định: duy trì, chỉnh sửa hay loại bỏ concept.</p>
+      <span class="phase-badge">⏱ Ngày 14 đến cuối tháng → Đánh giá tuần 4</span>
+    </div>
+  </div>
+  <div class="cards-grid c-nau">
+
+    <div class="card c-nau">
+      <div class="card-top"></div>
+      <div class="card-body">
+        <div class="card-hd"><span class="card-num">11</span><span class="card-icon">🎬</span><span class="card-title">Triển Khai Chụp — Quay — Dựng</span></div>
+        <p class="card-sub">Ngày chụp thử là ngày "test concept trong thực tế". Nếu có vấn đề phát sinh — ghi lại, không ứng biến tuỳ tiện làm lệch concept đã duyệt.</p>
+        <div class="fw-row" data-cols="3">
+          <div class="fw-cell"><div class="fw-key k-xanh">👤 Ai làm</div><div class="fw-val">Toàn bộ Ekip Sản xuất được phân công (Bước 09)</div></div>
+          <div class="fw-cell"><div class="fw-key k-dat">⏰ Khi nào</div><div class="fw-val">Ngày 14 hoặc ngày sớm nhất có lịch phòng chụp trống</div></div>
+          <div class="fw-cell"><div class="fw-key k-nau">✅ Kết quả chuẩn</div><div class="fw-val">Toàn bộ shot list hoàn thành, ảnh RAW + video thô lưu folder hệ thống trong ngày</div></div>
+        </div>
+        <ul class="checklist" style="margin-top:11px;">
+          <li><input type="checkbox" class="cb"> Setup phòng chụp đúng moodboard (kiểm tra trước 30 phút)</li>
+          <li><input type="checkbox" class="cb"> Chụp theo shot list — không tự ý bỏ frame nào</li>
+          <li><input type="checkbox" class="cb"> Quay video hậu trường theo định dạng đã xác nhận</li>
+          <li><input type="checkbox" class="cb"> Trưởng Sản xuất review nhanh ảnh tại chỗ trước khi kết thúc</li>
+          <li><input type="checkbox" class="cb"> Ghi chú mọi vấn đề phát sinh để báo cáo (không giấu)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card c-nau">
+      <div class="card-top"></div>
+      <div class="card-body">
+        <div class="card-hd"><span class="card-num">12</span><span class="card-icon">📤</span><span class="card-title">Bàn Giao Visual Cho Marketing</span></div>
+        <p class="card-sub">Marketing không thể truyền thông nếu không có ảnh đủ chất lượng và đúng format. Bàn giao đúng hạn = concept được lên sóng đúng lịch — trễ 1 ngày có thể lỡ peak engagement.</p>
+        <div class="fw-row" data-cols="3">
+          <div class="fw-cell"><div class="fw-key k-xanh">👤 Ai làm</div><div class="fw-val">Hậu kỳ + Media bàn giao → Marketing nhận</div></div>
+          <div class="fw-cell"><div class="fw-key k-dat">⏰ Khi nào</div><div class="fw-val">Tối đa 3 ngày sau ngày chụp thử</div></div>
+          <div class="fw-cell"><div class="fw-key k-nau">✅ Kết quả chuẩn</div><div class="fw-val">Marketing xác nhận đã nhận đủ: ảnh key, video, banner, caption gợi ý</div></div>
+        </div>
+        <ul class="checklist" style="margin-top:11px;">
+          <li><input type="checkbox" class="cb"> Ảnh key đã chỉnh màu warm film, đúng tone Ngọt</li>
+          <li><input type="checkbox" class="cb"> Video dựng xong đúng định dạng (9:16 Reels / 16:9 Facebook)</li>
+          <li><input type="checkbox" class="cb"> Banner truyền thông theo hệ thống hình ảnh Facebook Ngọt</li>
+          <li><input type="checkbox" class="cb"> Gợi ý caption mở đầu (1–2 câu hook về concept mới)</li>
+          <li><input type="checkbox" class="cb"> Ghi chú: gói dịch vụ áp dụng, đối tượng khách hàng mục tiêu</li>
+        </ul>
+        <div class="callout gold"><span>🎯</span><div>Kèm theo visual, Sản xuất nên gửi cho Marketing: <strong>1 đoạn brief ngắn về concept</strong> — để Marketing kể đúng câu chuyện thay vì viết caption theo cảm tính.</div></div>
+      </div>
+    </div>
+
+    <div class="card c-nau wide">
+      <div class="card-top"></div>
+      <div class="card-body">
+        <div class="card-hd"><span class="card-num">13</span><span class="card-icon">📊</span><span class="card-title">Đánh Giá Hiệu Quả Concept Sau 4 Tuần Chạy</span></div>
+        <p class="card-sub">Vòng đánh giá này là điểm mấu chốt để Ngọt liên tục cải thiện chất lượng concept — không phải cứ concept ra là tốt, phải có số liệu để biết concept đó sống hay chết.</p>
+        <div class="fw-row" data-cols="3">
+          <div class="fw-cell"><div class="fw-key k-xanh">👤 Ai đánh giá</div><div class="fw-val">Sản xuất + Marketing + Quản lý (họp review hằng tháng)</div></div>
+          <div class="fw-cell"><div class="fw-key k-dat">⏰ Khi nào</div><div class="fw-val">Cuối tháng — song song với lúc đọc báo cáo cho tháng tiếp theo</div></div>
+          <div class="fw-cell"><div class="fw-key k-nau">❓ Tại sao</div><div class="fw-val">Quyết định: giữ, tối ưu hay loại khỏi danh sách — dựa trên số thực, không cảm tính</div></div>
+        </div>
+        <div class="two-col" style="margin-top:13px;">
+          <div>
+            <div class="col-head" style="color:var(--nau);">Chỉ số đánh giá</div>
+            <ul class="checklist">
+              <li><input type="checkbox" class="cb"> Số lượt booking concept (mục tiêu: tối thiểu 3/tháng)</li>
+              <li><input type="checkbox" class="cb"> Tương tác truyền thông: reach, like, comment, share</li>
+              <li><input type="checkbox" class="cb"> Phản hồi từ khách hàng (tích cực / tiêu cực)</li>
+              <li><input type="checkbox" class="cb"> Doanh thu từ concept mới vs chi phí đầu tư sản xuất</li>
+              <li><input type="checkbox" class="cb"> Thời gian thực hiện actual vs kế hoạch (có trễ không?)</li>
+            </ul>
+          </div>
+          <div>
+            <div class="col-head" style="color:var(--dat);">Quyết định sau đánh giá</div>
+            <ul class="checklist">
+              <li><input type="checkbox" class="cb"> ✅ Giữ concept — đưa vào danh sách chính thức Ngọt</li>
+              <li><input type="checkbox" class="cb"> 🔧 Tối ưu — chỉnh setup / tone màu / giá / truyền thông</li>
+              <li><input type="checkbox" class="cb"> ❌ Loại bỏ — ghi lý do để tránh lặp lại</li>
+              <li><input type="checkbox" class="cb"> 📝 Ghi nhận bài học vào thư viện concept Ngọt</li>
+            </ul>
+          </div>
+        </div>
+        <div class="result-box">
+          <div class="result-lbl">Concept đạt chuẩn khi</div>
+          <ul class="result-items">
+            <li>Ít nhất 3 lượt booking trong 4 tuần đầu chạy truyền thông</li>
+            <li>Reach truyền thông đạt tối thiểu 5,000 người / bài đăng visual key</li>
+            <li>Không có phản hồi tiêu cực từ khách hàng về chất lượng setup</li>
+            <li>Chi phí sản xuất được bù hoàn trong vòng 2 tháng đầu tiên</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ MASTER CHECKLIST ══ -->
+<div class="sec sec-dark">
+  <div class="section-label lbl-white">Checklist Tổng Hợp</div>
+  <h2 class="section-title" style="color:white;">Không bỏ sót<br>một bước <em class="white">nào</em></h2>
+  <p style="color:rgba(255,255,255,.5);font-size:clamp(11px,1.3vw,13px);margin-top:8px;line-height:1.8;">Checklist tổng hợp toàn bộ 13 bước — in ra và dán tại góc làm việc của Trưởng Sản xuất. Tick khi hoàn thành, ký tên + ghi ngày.</p>
+  <div class="cl-grid">
+    <div>
+      <div class="cl-col-head ch1">📊 Giai Đoạn 1 · Phân Tích Dữ Liệu</div>
+      <div class="cl-item"><input type="checkbox" class="cl-cb"><div class="cl-txt"><strong>B01</strong> Kinh doanh gửi báo cáo tháng trước lên Larkbase (trước ngày 2)</div></div>
+      <div class="cl-item"><input type="checkbox" class="cl-cb"><div class="cl-txt"><strong>B02</strong> Trưởng Sản xuất + Stylist + Photo đọc và tổng hợp insight khách hàng</div></div>
+      <div class="cl-item"><input type="checkbox" class="cl-cb"><div class="cl-txt"><strong>B03</strong> Trưởng Sản xuất lập bảng phân bổ quỹ concept (5% doanh thu) — Quản lý xác nhận</div></div>
+      <div class="cl-col-head ch2" style="margin-top:22px;">💡 Giai Đoạn 2 · Tìm Ý Tưởng</div>
+      <div class="cl-item"><input type="checkbox" class="cl-cb dat"><div class="cl-txt"><strong>B04</strong> Stylist + Photo research trend (Facebook, Douyin, Pinterest) — lưu tối thiểu 5 ý tưởng</div></div>
+      <div class="cl-item"><input type="checkbox" class="cl-cb dat"><div class="cl-txt"><strong>B05</strong> Bộ phận Sản xuất lập bảng đề xuất concept (đủ 7 cột chuẩn)</div></div>
+      <div class="cl-item"><input type="checkbox" class="cl-cb dat"><div class="cl-txt"><strong>B06</strong> Họp trình duyệt với Quản lý — xác nhận danh sách concept + ngân sách từng concept</div></div>
+    </div>
+    <div>
+      <div class="cl-col-head ch3">📋 Giai Đoạn 3 · Kế Hoạch Sản Xuất</div>
+      <div class="cl-item"><input type="checkbox" class="cl-cb dat"><div class="cl-txt"><strong>B07</strong> Trưởng Sản xuất lập file kế hoạch đầy đủ 3 mảng (setup / ekip / đầu ra)</div></div>
+      <div class="cl-item"><input type="checkbox" class="cl-cb dat"><div class="cl-txt"><strong>B08</strong> Stylist + Phụ trách setup: danh sách vật phẩm mua xong, không còn item pending</div></div>
+      <div class="cl-item"><input type="checkbox" class="cl-cb dat"><div class="cl-txt"><strong>B09</strong> Trưởng Sản xuất phân công ekip + lịch chụp thử xác nhận trước 3 ngày</div></div>
+      <div class="cl-item"><input type="checkbox" class="cl-cb dat"><div class="cl-txt"><strong>B10</strong> Photo + Media + Hậu kỳ hoàn thành shot list và kế hoạch đầu ra visual</div></div>
+      <div class="cl-col-head ch4" style="margin-top:22px;">🚀 Giai Đoạn 4 · Triển Khai & Đánh Giá</div>
+      <div class="cl-item"><input type="checkbox" class="cl-cb dat"><div class="cl-txt"><strong>B11</strong> Ekip triển khai chụp thử — ảnh RAW + video lưu vào folder hệ thống trong ngày</div></div>
+      <div class="cl-item"><input type="checkbox" class="cl-cb dat"><div class="cl-txt"><strong>B12</strong> Hậu kỳ + Media bàn giao visual cho Marketing trong vòng 3 ngày sau chụp</div></div>
+      <div class="cl-item"><input type="checkbox" class="cl-cb dat"><div class="cl-txt"><strong>B13</strong> Họp đánh giá cuối tháng: Sản xuất + Marketing + Quản lý — ra quyết định giữ / tối ưu / loại</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ KPI ══ -->
+<div class="sec">
+  <div class="section-label lbl-xanh">Chỉ Số Đo Lường Hiệu Quả</div>
+  <h2 class="section-title">KPI Quy Trình Concept —<br>đo lường <em>cả quá trình</em> lẫn kết quả</h2>
+  <p class="section-intro">Không chỉ đo lường ở đầu ra (booking). Quy trình tốt cũng phải được đo — vì nếu quy trình trễ, concept tốt đến đâu cũng không ra thị trường đúng thời điểm.</p>
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-lbl">Tỉ Lệ Concept Được Duyệt</div><div class="kpi-val">≥ 60%</div><div class="kpi-unit">Số concept được duyệt / tổng đề xuất</div><div class="kpi-bar"><div class="kpi-bar-fill" style="width:60%"></div></div><div class="kpi-note">Nếu thấp hơn 60% — xem lại chất lượng bảng đề xuất Bước 05</div></div>
+    <div class="kpi-card"><div class="kpi-lbl">Thời Gian Duyệt → Bàn Giao Visual</div><div class="kpi-val">≤ 14</div><div class="kpi-unit">ngày kể từ ngày phê duyệt ngân sách</div><div class="kpi-bar"><div class="kpi-bar-fill" style="width:80%"></div></div><div class="kpi-note">Trễ hơn 14 ngày = lỡ cơ hội truyền thông đầu tháng</div></div>
+    <div class="kpi-card"><div class="kpi-lbl">Booking Trong 4 Tuần Đầu</div><div class="kpi-val">≥ 3</div><div class="kpi-unit">lượt booking / concept mới trong 4 tuần</div><div class="kpi-bar"><div class="kpi-bar-fill" style="width:75%"></div></div><div class="kpi-note">Đạt 3+ → duy trì. Dưới 2 → họp đánh giá ngay không chờ cuối tháng</div></div>
+    <div class="kpi-card"><div class="kpi-lbl">Đúng Hạn Bàn Giao Visual</div><div class="kpi-val">100%</div><div class="kpi-unit">visual bàn giao trong 3 ngày sau ngày chụp</div><div class="kpi-bar"><div class="kpi-bar-fill" style="width:100%"></div></div><div class="kpi-note">Không có ngoại lệ — Marketing có lịch đăng cố định</div></div>
+    <div class="kpi-card"><div class="kpi-lbl">Chi Phí Hoàn Vốn</div><div class="kpi-val">≤ 2</div><div class="kpi-unit">tháng để concept mới hoàn vốn chi phí sản xuất</div><div class="kpi-bar"><div class="kpi-bar-fill" style="width:65%"></div></div><div class="kpi-note">Nếu quá 2 tháng chưa hoàn vốn — xem xét điều chỉnh giá gói</div></div>
+    <div class="kpi-card"><div class="kpi-lbl">Concept Tồn Tại > 3 Tháng</div><div class="kpi-val">≥ 50%</div><div class="kpi-unit">concept mới vẫn được booking sau 3 tháng ra mắt</div><div class="kpi-bar"><div class="kpi-bar-fill" style="width:50%"></div></div><div class="kpi-note">Dưới 50% → vấn đề ở khâu nghiên cứu insight đầu vào (Bước 02)</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ PRINCIPLES ══ -->
+<div class="sec sec-warm">
+  <div class="section-label lbl-dat">Nguyên Tắc Cốt Lõi</div>
+  <h2 class="section-title" style="color:var(--nau);">5 Điều Bộ Phận Sản Xuất Ngọt<br>Không Bao Giờ Quên</h2>
+  <div class="principles">
+    <div class="prin"><div class="prin-icon">📊</div><div class="prin-name">Dữ liệu</div><div class="prin-desc">Mọi concept đều bắt đầu từ số liệu kinh doanh thực — không bắt đầu từ cảm hứng cá nhân</div></div>
+    <div class="prin"><div class="prin-icon">🎯</div><div class="prin-name">Mục tiêu</div><div class="prin-desc">Mỗi concept phải trả lời được: phục vụ ai, bán cái gì, và đo lường bằng chỉ số nào</div></div>
+    <div class="prin"><div class="prin-icon">🗓️</div><div class="prin-name">Đúng hạn</div><div class="prin-desc">Concept tốt mà bàn giao trễ = cơ hội mất. Timeline là cam kết, không phải gợi ý</div></div>
+    <div class="prin"><div class="prin-icon">🔄</div><div class="prin-name">Cải thiện</div><div class="prin-desc">Không có concept hoàn hảo từ đầu — đánh giá sau 4 tuần để tinh chỉnh hoặc loại bỏ</div></div>
+    <div class="prin"><div class="prin-icon">🤝</div><div class="prin-name">Phối hợp</div><div class="prin-desc">Sản xuất – Marketing – Kinh doanh là một hệ thống. Một mắt xích trễ, cả dây chuyền dừng</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="sop-footer">
+  <div>
+    <div class="footer-brand">Ngọt Studio</div>
+    <div class="footer-tagline">Yêu thương từng khoảnh khắc</div>
+  </div>
+  <div class="footer-info">
+    <div>SOP Lên Concept Mới · Bộ Phận Sản Xuất · Phiên Bản 1.0</div>
+    <div>Hà Nội & Phú Thọ · Lưu hành nội bộ</div>
+    <div style="font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-top:3px;color:var(--xanh-nhe);">Cập nhật bởi Trưởng Sản xuất · 2025</div>
+  </div>
+</div>
+
+<script>
+// Checkbox interactions
+document.querySelectorAll('.cb,.cl-cb').forEach(cb=>{
+  cb.addEventListener('change',function(){
+    const row=this.closest('li,.cl-item');
+    if(row){row.style.transition='opacity 0.3s';row.style.opacity=this.checked?'0.45':'1';}
+  });
+});
+
+// Responsive fw-row: recalculate borders on resize
+function applyFwBorders(){
+  const isMobile=window.innerWidth<=600;
+  const isTablet=window.innerWidth<=900&&!isMobile;
+  document.querySelectorAll('.fw-row').forEach(row=>{
+    const cells=[...row.querySelectorAll('.fw-cell')];
+    const cols=isMobile?1:isTablet?2:3;
+    cells.forEach((cell,i)=>{
+      const col=i%cols;
+      const rowIdx=Math.floor(i/cols);
+      const totalRows=Math.ceil(cells.length/cols);
+      const isLastCol=col===cols-1||i===cells.length-1;
+      const isLastRow=rowIdx===totalRows-1&&i>=cells.length-Math.min(cols,cells.length-rowIdx*cols);
+      cell.style.borderRight=isLastCol?'none':'1px solid var(--line)';
+      cell.style.borderBottom=isLastRow?'none':'1px solid var(--line)';
+    });
+  });
+}
+applyFwBorders();
+let resizeTimer;
+window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(applyFwBorders,150);});
+</script>
+</body>
+</html>
